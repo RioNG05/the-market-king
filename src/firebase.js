@@ -1,15 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-// YÊU CẦU: Nhóm cần điền thông tin Firebase Config thật vào đây
+// Điền thông tin Firebase Config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.asia-southeast1.firebasedatabase.app", // Check region carefully!
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyA2q3vBUI056R-4X7uliY4xYMNx5_VcHDQ",
+  authDomain: "market-king-demo.firebaseapp.com",
+  databaseURL: "https://market-king-demo-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "market-king-demo",
+  storageBucket: "market-king-demo.firebasestorage.app",
+  messagingSenderId: "167738927827",
+  appId: "1:167738927827:web:4da7693805ed07012bc226",
+  measurementId: "G-PWGKT6HKRP"
 };
 
 // Initialize Firebase
