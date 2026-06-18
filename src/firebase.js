@@ -5,7 +5,7 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyA2q3vBUI056R-4X7uliY4xYMNx5_VcHDQ",
   authDomain: "market-king-demo.firebaseapp.com",
-  databaseURL: "https://market-king-demo-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL: "https://market-king-demo-default-rtdb.firebaseio.com/",
   projectId: "market-king-demo",
   storageBucket: "market-king-demo.firebasestorage.app",
   messagingSenderId: "167738927827",
