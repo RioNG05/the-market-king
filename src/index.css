@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: synthwave, cyberpunk, dark;
+  --default: synthwave;
+}
+
+/* Custom Cyberpunk Theme & Utilities */
+:root {
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff007f;
+  --neon-yellow: #ffe600;
+  --neon-green: #39ff14;
+}
+
+body {
+  background-color: #0a0b10;
+  color: #e2e4ed;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Cyberpunk Glowing Effects */
+.glow-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.glow-text-magenta {
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6), 0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.6), 0 0 20px rgba(57, 255, 20, 0.2);
+}
+
+.glow-border-cyan {
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.6) !important;
+}
+
+.glow-border-magenta {
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+  border-color: rgba(255, 0, 127, 0.6) !important;
+}
+
+.cyber-panel {
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: rgba(13, 14, 21, 0.85);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.cyber-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid var(--neon-cyan);
+  border-left: 3px solid var(--neon-cyan);
+  pointer-events: none;
+}
+
+.cyber-panel::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-bottom: 3px solid var(--neon-magenta);
+  border-right: 3px solid var(--neon-magenta);
+  pointer-events: none;
+}
+
+/* Custom animations */
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-fast {
+  animation: pulse-fast 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scanline Overlay */
+.scanline-bg {
+  position: relative;
+}
+
+.scanline-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.12) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Animated Grid background for cyberpunk feel */
+.cyber-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Floating Animation for coins */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-coin {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: floatUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  z-index: 50;
+  color: #ffe600;
+  text-shadow: 0 0 6px rgba(255, 230, 0, 0.8);
+}
+
+/* Custom custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0e15;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 127, 0.5);
+}
