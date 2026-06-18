@@ -39,6 +39,8 @@ function MasterDashboard() {
         pArray.sort((a, b) => b.funds - a.funds);
         setLeaderboard(pArray.slice(0, 5)); // Top 5
       }
+    }, (error) => {
+      setRoomData({ error: error.message });
     });
 
     return () => unsubscribe();
@@ -176,6 +178,7 @@ function MasterDashboard() {
   };
 
   if (!roomData) return <div className="p-10 text-center text-cyan-500">Đang tạo phòng...</div>;
+  if (roomData.error) return <div className="p-10 text-center text-red-500 text-2xl font-bold">Lỗi Database: {roomData.error}<br/><span className="text-sm">Hãy kiểm tra lại Rules của Firebase (chuyển read, write thành true)</span></div>;
 
   const playerList = Object.entries(players);
   const readyCount = playerList.filter(([id, p]) => 

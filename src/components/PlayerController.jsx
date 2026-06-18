@@ -65,7 +65,11 @@ function PlayerController() {
             }
           });
         }
+      } else {
+        setRoomData({ notFound: true });
       }
+    }, (error) => {
+      setRoomData({ error: error.message });
     });
     
     return () => unsubscribe();
@@ -73,6 +77,12 @@ function PlayerController() {
 
   if (!roomData) {
     return <div className="p-4 text-center">Đang kết nối vào phòng...</div>;
+  }
+  if (roomData.notFound) {
+    return <div className="p-4 text-center text-red-500 mt-10 text-xl font-bold">Phòng không tồn tại!<br/><span className="text-sm text-neutral-400">Vui lòng kiểm tra lại mã phòng hoặc chờ Giảng viên mở phòng.</span></div>;
+  }
+  if (roomData.error) {
+    return <div className="p-4 text-center text-red-500 mt-10">Lỗi kết nối Firebase: {roomData.error}<br/><span className="text-sm text-yellow-400">Giảng viên cần vào Firebase chỉnh "Rules" (Quy tắc) thành true.</span></div>;
   }
 
   if (!playerData && roomData.phase !== 'setup') {
