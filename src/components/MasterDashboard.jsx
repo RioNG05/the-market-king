@@ -44,7 +44,7 @@ function MasterDashboard() {
     return () => unsubscribe();
   }, [roomId]);
 
-  const joinLink = `${window.location.origin}/#/play/${roomId}`; // Assuming hash router or similar, we will use HashRouter to avoid Vercel 404s on refresh.
+  const joinLink = window.location.href.replace('/master/', '/play/');
 
   const advancePhase = () => {
     if (!roomData) return;
